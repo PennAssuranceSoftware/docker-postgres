@@ -1,0 +1,7 @@
+- type: push
+  name: pushAws
+  service: app
+  registry: https://168745904620.dkr.ecr.us-east-1.amazonaws.com
+  image_name:  168745904620.dkr.ecr.us-east-1.amazonaws.com/postgresql
+  image_tag: latest
+  dockercfg_service: aws_generator
