@@ -1,3 +1,6 @@
+# Postgres Docker
+<img src="https://codeship.com/projects/327e7b50-c0e5-0134-24ab-7ee917b55fa1/status?branch=master" />
+
 ## Build
 ````
 docker build -t pennassurancesoftware/postgres:latest .
