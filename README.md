@@ -8,8 +8,20 @@ docker build -t pennassurancesoftware/postgres:latest .
 
 ## Run
 ````
-docker run -d --name=db -p 5432:5432 -e DB_USER="super" -e DB_NAME="yaas" -e DB_PASS="postgres" pennassurancesoftware/postgres:latest
+docker stop db; docker rm db;
+docker run -d --name=db -p 5432:5432 -e POSTGRES_USER="super" -e POSTGRES_DB="yaas" -e POSTGRES_PASSWORD="postgres" pennassurancesoftware/postgres:latest; docker logs -f db
 ````
+
+## Inspect
+You can run `psql` command against the running database:
+```shell
+docker run -it --rm --link db:postgres postgres psql -h postgres -U postgres postgres
+```
+
+Connect as the user you created for your databsae:
+```shell
+docker run -it --rm --link db:postgres postgres psql -h postgres -U super yaas
+```
 
 ## Notes
 I used the [pynab-docker](https://github.com/Herkemer/pynab-docker) repository as a reference.
